@@ -23,7 +23,12 @@ const Breeds = () => {
     data &&
     data.map((breed) => {
       return (
-        <li data-breed={breed} key={breed} onClick={handleClick}>
+        <li
+          className={selectedBreeds.indexOf(value) > -1 ? "active" : ""}
+          data-breed={breed}
+          key={breed}
+          onClick={handleClick}
+        >
           {breed}
         </li>
       );
@@ -32,7 +37,7 @@ const Breeds = () => {
   return;
   <>
     <h1>Breeds</h1>
-    <ul>{breeds}</ul>
+    <ul className="breeds">{breeds}</ul>
   </>;
 };
 

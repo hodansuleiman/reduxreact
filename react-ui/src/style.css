@@ -53,3 +53,25 @@ a {
 .y-navs a:not(:first-of-type) {
   margin: 0 0 0 16px;
 }
+
+
+ul{
+  column-gap: 4px;
+  display:flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 20px 0;
+  row-gap: 4px;
+}
+.breeds li{
+  background-color: aliceblue;
+  cursor: pointer;
+  padding: 20px 0px;
+  width: 160px;
+  
+}
+
+.breeds li.active{
+  background-color: cornflowerblue;
+  color: white;
+}
