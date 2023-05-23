@@ -19,6 +19,8 @@ const Breeds = () => {
     setselectedBreeds(_selectedBreeds);
   };
 
+  const handleSelectedBreeds = () => {};
+
   const breeds =
     data &&
     data.map((breed) => {
@@ -34,11 +36,20 @@ const Breeds = () => {
       );
     });
 
-  return;
-  <>
-    <h1>Breeds</h1>
-    <ul className="breeds">{breeds}</ul>
-  </>;
+  return (
+    <>
+      <div className="breeds-subheader">
+        <h1>Breeds</h1>
+        {selectedBreeds.length > 0 && (
+          <button onClick={handleSelectedBreeds}>
+            {" "}
+            Add selections to favorites?
+          </button>
+        )}
+      </div>
+      <ul className="breeds">{breeds}</ul>
+    </>
+  );
 };
 
 export default Breeds;
