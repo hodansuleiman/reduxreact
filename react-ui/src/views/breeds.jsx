@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectBreeds } from "../features/breedsSlice";
-import { selectselectedBreeds } from "../features/selectedBreedsSlice";
-import { addSelectBreedsToStore } from "../features/selectedBreedsSlice";
+import { addselectBreedsToStore } from "../features/selectedBreedsSlice";
 
 const Breeds = () => {
   const [selectedBreeds, setselectedBreeds] = useState([]);
@@ -13,16 +12,15 @@ const Breeds = () => {
     const value = e.target.dataset.breed;
     let _selectedBreeds = [];
     if (selectedBreeds.indexOf(value) > -1) {
-      const _selectedBreeds = selectedBreeds.filter((breed) => breed !== value);
-      _setselectedBreeds(_selectedBreeds);
+      _selectedBreeds = selectedBreeds.filter((breed) => breed !== value);
     } else {
-      const _selectedBreeds = [...selectedBreeds, value];
+      _selectedBreeds = [...selectedBreeds, value];
     }
     setselectedBreeds(_selectedBreeds);
   };
 
   const handleSelectedBreeds = () => {
-    dispatch(addSelectedBreedsToStore(selectedBreeds));
+    dispatch(addselectBreedsToStore(selectedBreeds));
     setselectedBreeds([]);
   };
 
@@ -31,7 +29,7 @@ const Breeds = () => {
     data.map((breed) => {
       return (
         <li
-          className={selectedBreeds.indexOf(value) > -1 ? "active" : ""}
+          className={selectedBreeds.indexOf(breed) > -1 ? "active" : ""}
           data-breed={breed}
           key={breed}
           onClick={handleClick}
